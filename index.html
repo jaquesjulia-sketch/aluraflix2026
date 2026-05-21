@@ -3,78 +3,84 @@
 
 <head>
     <meta charset="UTF-8">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>juliaJ</title>
     
-    <!-- Importação de Fontes do Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 
-    <!-- Estilização CSS Incorporada para Personalização Completa -->
     <style>
+        /* Variáveis globais (custom properties) para facilitar a manutenção de cores e efeitos */
         :root {
-            --primary-color: #E50914; /* Vermelho Netflix */
-            --bg-color: #111116;      /* Fundo quase preto */
-            --bg-card: #181820;       /* Fundo dos cartões */
-            --text-color: #FFFFFF;    /* Texto principal */
-            --text-secondary: #AAAAAA;/* Texto secundário */
-            --glow-color: rgba(229, 9, 20, 0.4);
+            --primary-color: #E50914; /* Vermelho padrão estilo Netflix */
+            --bg-color: #111116;      /* Tom de fundo quase preto */
+            --bg-card: #181820;       /* Cor de fundo para as caixas de vídeo (cards) */
+            --text-color: #FFFFFF;    /* Cor branca para textos principais */
+            --text-secondary: #AAAAAA;/* Cor cinza para textos secundários */
+            --glow-color: rgba(229, 9, 20, 0.4); /* Sombra vermelha semitransparente para efeitos de brilho */
         }
 
+        /* Reset básico: Remove margens e preenchimentos padrões do navegador em todos os elementos */
         * {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: "Chakra Petch", sans-serif;
+            box-sizing: border-box; /* Garante que bordas e paddings não aumentem o tamanho total dos elementos */
+            font-family: "Chakra Petch", sans-serif; /* Aplica a fonte importada em todo o site */
         }
 
+        /* Configurações gerais para o corpo (fundo) da página */
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
-            line-height: 1.6;
-            overflow-x: hidden;
-            padding-bottom: 50px;
+            line-height: 1.6; /* Melhora o espaçamento entre linhas de texto */
+            overflow-x: hidden; /* Evita barras de rolagem horizontais indesejadas */
+            padding-bottom: 50px; /* Espaço extra no final da página */
         }
 
-        /* Cabeçalho */
+        /* Estilização do Topo/Cabeçalho */
         header {
-            background-color: rgba(17, 17, 22, 0.95);
+            background-color: rgba(17, 17, 22, 0.95); /* Fundo escuro com leve transparência */
             color: var(--primary-color);
-            padding: 20px 4%;
+            padding: 20px 4%; /* Espaçamento interno (cima/baixo e lados) */
             font-size: 2rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            border-bottom: 2px solid var(--primary-color);
-            position: sticky;
+            font-weight: 700; /* Texto em negrito */
+            letter-spacing: 2px; /* Espaçamento entre as letras do logo */
+            border-bottom: 2px solid var(--primary-color); /* Linha vermelha fina abaixo do cabeçalho */
+            position: sticky; /* Faz o cabeçalho ficar fixo no topo ao rolar a página */
             top: 0;
-            z-index: 100;
-            backdrop-filter: blur(8px);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-            text-shadow: 0 0 10px var(--glow-color);
+            z-index: 100; /* Garante que o cabeçalho fique por cima de qualquer outro elemento */
+            backdrop-filter: blur(8px); /* Aplica efeito de vidro fosco ao fundo do cabeçalho */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Sombra escura abaixo do cabeçalho */
+            text-shadow: 0 0 10px var(--glow-color); /* Brilho neon vermelho no texto */
         }
 
-        /* Seção Principal (Chamada) */
+        /* Seção Principal de Destaque (Chamada) */
         .chamada {
             display: flex;
-            flex-direction: column;
+            flex-direction: column; /* Organiza os elementos verticalmente em telas menores */
             align-items: center;
             justify-content: center;
-            gap: 30px;
+            gap: 30px; /* Espaço entre o texto de chamada e o vídeo principal */
             padding: 60px 4%;
+            /* Cria um efeito de degradê suave do vermelho para o fundo escuro */
             background: linear-gradient(180deg, rgba(229, 9, 20, 0.1) 0%, rgba(17, 17, 22, 1) 100%);
             border-bottom: 1px solid #222;
         }
 
+        /* Media Query: Regras aplicadas apenas em telas maiores que 900px (Ex: Computadores) */
         @media (min-width: 900px) {
             .chamada {
-                flex-direction: row;
+                flex-direction: row; /* Coloca o texto e o vídeo lado a lado */
                 justify-content: space-between;
                 text-align: left;
                 padding: 80px 6%;
             }
         }
 
+        /* Bloco de texto da seção de destaque */
         .chamada-texto {
             flex: 1;
             max-width: 500px;
@@ -83,55 +89,60 @@
 
         @media (min-width: 900px) {
             .chamada-texto {
-                text-align: left;
+                text-align: left; /* Alinha o texto à esquerda em telas grandes */
             }
         }
 
+        /* Estilo do título do filme em destaque */
         .chamada-texto h1 {
             font-size: 2.8rem;
             font-weight: 700;
             line-height: 1.2;
             margin-bottom: 15px;
-            text-transform: uppercase;
+            text-transform: uppercase; /* Força o texto a ficar em letras maiúsculas */
             letter-spacing: 1px;
+            /* Efeito moderno de cor gradiente aplicada diretamente nas letras do título */
             background: linear-gradient(90deg, #FFFFFF, var(--primary-color));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
+        /* Estilo da tag/categoria (Ex: #homem-aranha) */
         .chamada-texto p {
             font-size: 1.2rem;
             color: var(--primary-color);
-            background-color: rgba(229, 9, 20, 0.15);
-            display: inline-block;
+            background-color: rgba(229, 9, 20, 0.15); /* Fundo vermelho bem clarinho */
+            display: inline-block; /* Faz o fundo envolver apenas o tamanho exato do texto */
             padding: 4px 12px;
-            border-radius: 4px;
+            border-radius: 4px; /* Cantos levemente arredondados */
             font-weight: 500;
             border: 1px solid rgba(229, 9, 20, 0.3);
         }
 
-        /* Container do Vídeo do YouTube */
+        /* Container que envolve e protege o vídeo principal do YouTube */
         .video-container {
             position: relative;
             width: 100%;
             max-width: 560px;
             border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 20px var(--glow-color);
-            aspect-ratio: 16 / 9;
+            overflow: hidden; /* Garante que o vídeo respeite os cantos arredondados do container */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 20px var(--glow-color); /* Sombra intensa e brilho vermelho */
+            aspect-ratio: 16 / 9; /* Mantém a proporção padrão de vídeo de cinema/TV automaticamente */
         }
 
+        /* Faz com que o frame do YouTube preencha todo o espaço do container */
         .video-container iframe {
             width: 100%;
             height: 100%;
             border: none;
         }
 
-        /* Seção de Categorias e Vídeos */
+        /* Seção da Galeria Inferior (Filmes e Séries) */
         .categoria {
             padding: 40px 4%;
         }
 
+        /* Título da seção (Filmes e séries) */
         .categoria h2 {
             font-size: 1.8rem;
             margin-bottom: 25px;
@@ -141,98 +152,103 @@
             padding-bottom: 8px;
         }
 
+        /* Cria a linha vermelha decorativa abaixo do título "Filmes e séries" */
         .categoria h2::after {
             content: '';
             position: absolute;
             left: 0;
             bottom: 0;
-            width: 60%;
+            width: 60%; /* A linha cobre 60% da largura do texto do título */
             height: 3px;
             background-color: var(--primary-color);
             border-radius: 2px;
         }
 
-        /* Carrossel / Grade de Vídeos */
+        /* Grade/Grid que organiza os cartões de vídeos menores */
         .categoria-videos {
             display: grid;
+            /* Cria colunas automáticas adaptáveis com tamanho mínimo de 240px cada */
             grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-            gap: 20px;
+            gap: 20px; /* Espaço entre cada cartão */
             padding: 10px 0;
         }
 
-        /* Ajustes de responsividade para telas menores */
+        /* Ajuste de grade específico para celulares pequenos (abaixo de 600px de tela) */
         @media (max-width: 600px) {
             .categoria-videos {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(2, 1fr); /* Força a exibição de exatamente 2 vídeos por linha */
                 gap: 12px;
             }
         }
 
-        /* Item de Vídeo (Cards) */
+        /* Configuração de cada cartão/link de vídeo */
         .categoria-videos a {
             display: block;
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+            /* Transição suave para os efeitos de animação ao passar o mouse */
             transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
             position: relative;
             background-color: var(--bg-card);
             border: 1px solid #222;
         }
 
+        /* Efeito visual ao passar o mouse (Hover) sobre o cartão de vídeo */
         .categoria-videos a:hover {
-            transform: translateY(-5px) scale(1.03);
-            box-shadow: 0 12px 25px rgba(229, 9, 20, 0.3);
-            border-color: var(--primary-color);
+            transform: translateY(-5px) scale(1.03); /* Eleva o card levemente para cima e aumenta o tamanho */
+            box-shadow: 0 12px 25px rgba(229, 9, 20, 0.3); /* Altera a sombra para um brilho vermelho */
+            border-color: var(--primary-color); /* Muda a cor da borda para vermelho */
         }
 
+        /* Imagens das capas dos vídeos (Thumbnails do YouTube) */
         .categoria-videos img {
             width: 100%;
             height: auto;
             display: block;
             object-fit: cover;
-            aspect-ratio: 16 / 9;
+            aspect-ratio: 16 / 9; /* Garante que todas as capas fiquem no mesmo tamanho proporcional */
             transition: filter 0.3s ease;
         }
 
+        /* Aumenta o brilho da imagem levemente ao passar o mouse */
         .categoria-videos a:hover img {
             filter: brightness(1.1);
         }
 
-        /* Efeito de Play ao passar o mouse */
+        /* Cria o botão virtual de 'Play' (▶) oculto no centro de cada card usando Pseudo-elemento */
         .categoria-videos a::before {
             content: '▶';
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%) scale(0.8);
+            transform: translate(-50%, -50%) scale(0.8); /* Centraliza o ícone perfeitamente */
             font-size: 2rem;
             color: white;
-            background: rgba(229, 9, 20, 0.8);
+            background: rgba(229, 9, 20, 0.8); /* Fundo vermelho do botão com transparência */
             width: 50px;
             height: 50px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 50%;
-            opacity: 0;
+            border-radius: 50%; /* Torna o botão redondo */
+            opacity: 0; /* Começa invisível */
             z-index: 2;
             transition: all 0.3s ease;
-            pointer-events: none;
+            pointer-events: none; /* Impede que o ícone interfira nos cliques do link */
         }
 
+        /* Revela o botão de Play quando o usuário passa o mouse sobre o cartão */
         .categoria-videos a:hover::before {
-            opacity: 1;
-            transform: translate(-50%, -50%) scale(1);
+            opacity: 1; /* Torna visível */
+            transform: translate(-50%, -50%) scale(1); /* Aplica um leve efeito de crescimento */
         }
     </style>
 </head>
 
 <body>
-    <!-- Cabeçalho Principal -->
     <header>juhFLIX</header>
 
-    <!-- Seção de Chamada com Destaque -->
     <section class="chamada">
         <div class="chamada-texto">
             <h1>Através do Aranhaverso</h1>
@@ -247,22 +263,26 @@
         </div>
     </section>
 
-    <!-- Galeria de Filmes e Séries -->
     <section class="categoria">
         <h2>Filmes e séries</h2>
         <div class="categoria-videos">
+            
             <a href="https://www.youtube.com/watch?v=cs15QqG6Gjc" target="_blank" rel="noopener">
                 <img src="https://img.youtube.com/vi/cs15QqG6Gjc/maxresdefault.jpg" alt="Video 1" onerror="this.src='https://via.placeholder.com/320x180/181820/ffffff?text=Video+Indisponível'"/>
             </a>
+            
             <a href="https://www.youtube.com/watch?v=nCmIwcycUJ8" target="_blank" rel="noopener">
                 <img src="https://img.youtube.com/vi/nCmIwcycUJ8/maxresdefault.jpg" alt="Video 2" onerror="this.src='https://via.placeholder.com/320x180/181820/ffffff?text=Video+Indisponível'"/>
             </a>
+            
             <a href="https://www.youtube.com/watch?v=FvRmEapoHRc" target="_blank" rel="noopener">
                 <img src="https://img.youtube.com/vi/FvRmEapoHRc/maxresdefault.jpg" alt="Video 3" onerror="this.src='https://via.placeholder.com/320x180/181820/ffffff?text=Video+Indisponível'"/>
             </a>
+            
             <a href="https://www.youtube.com/watch?v=Ipkw_hWW-Hw" target="_blank" rel="noopener">
                 <img src="https://img.youtube.com/vi/Ipkw_hWW-Hw/maxresdefault.jpg" alt="Video 4" onerror="this.src='https://via.placeholder.com/320x180/181820/ffffff?text=Video+Indisponível'"/>
             </a>
+            
             <a href="https://www.youtube.com/watch?v=d4DzMNGoyis" target="_blank" rel="noopener">
                 <img src="https://img.youtube.com/vi/d4DzMNGoyis/maxresdefault.jpg" alt="Video 5" onerror="this.src='https://via.placeholder.com/320x180/181820/ffffff?text=Video+Indisponível'"/>
             </a>
@@ -270,5 +290,4 @@
     </section>
 
 </body>
-
 </html>
