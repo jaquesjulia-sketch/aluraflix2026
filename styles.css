@@ -1,21 +1,21 @@
 body {
-    color: rgb(206, 200, 200);
-    background: #002bff;
-background: linear-gradient(340deg,rgba(0, 43, 255, 1) 0%, rgba(8, 7, 7, 1) 54%, rgba(0, 4, 250, 1) 100%);
+    color: white;
+    background: background: #ffffff;
+background: linear-gradient(90deg,rgba(255, 255, 255, 1) 0%, rgba(199, 87, 87, 1) 50%, rgba(237, 83, 83, 1) 100%);;
     margin: 0px;
     font-family: "Chakra Petch", sans-serif;
     margin-bottom: 100px;
 }
 
 header {
-    border-bottom: solid 2px rgb(67, 42, 228);
+    border-bottom: solid 2px rgb(42, 122, 228);
     padding: 20px;
     font-size: 32px;
     color: rgb(42, 122, 228);
 }
 
 .chamada {
-    background: rgb(127, 50, 252);
+    background: rgb(184, 156, 213);
     padding-bottom: 80px;
     padding-top: 80px;
     display: flex;
@@ -53,10 +53,10 @@ p {
 
 .categoria-videos img:hover {
     opacity: 1.0;
-    border: 3px solid rgb(187, 1, 255);
+    border: 3px solid green;
 }
 
 .categoria h2 {
-    color: rgb(234, 9, 255);
+    color: rgb(42, 122, 228);
 }
 
